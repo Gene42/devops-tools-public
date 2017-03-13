@@ -9,7 +9,7 @@ $init_script = <<SCRIPT
          
      sudo yum install -y vim git
      
-     init_folder=.devops-tools-public
+     init_folder=devops-tools-public
 
      if [ -d "$init_folder" ]; then
         rm -rf "$init_folder"
