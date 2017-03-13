@@ -14,7 +14,8 @@ done
 
 current=$(pwd)
 
-printf "%s\n" "------------------------ Initializing Gene42 DevOps ------------------------"
+cat .gene42.logo
+printf "%s\n%s\n" "[Initializing Gene42 DevOps]" "______________________________________"
 
 ####### GIT #######
 install_git()
@@ -49,7 +50,11 @@ if [ ! -d "$ssh_folder" ]; then
 fi
 
 if [ ! -f "$key_file" ]; then
-    printf "%s\n" "Ssh key [${key_file}] was not found, please make sure it exists and run this again!"    
+    touch "$key_file"
+fi
+
+if [ -z "$(cat $key_file)" ]; then
+    printf "%s\n" "SSH key [${key_file}] was not found, please make sure it exists and run this again!"    
     exit 1
 fi
 
@@ -96,12 +101,15 @@ cd "$gene42_dir"
 devops_dir=scripts
 if [ -d "$devops_dir" ]; then
     ####### Reset devops-tools (private) code - remove repo and pull
-    if [ "$default" = "yes" ]; then
-        echo "------------------------------------"
+    if [ "$default" = "yes" ]; then        
         while true; do
             read -r -p "Pull newest DevOps scripts (Current system.configs will not be deleted)? [y/n]:" yn
             case $yn in
-                [Yy]* ) rm -rf "$devops_dir"; git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"; break;;
+                [Yy]* ) 
+                    printf "%s\n" "Removing local scripts.."
+                    rm -rf "$devops_dir"
+                    git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"
+                    break;;
                 [Nn]* ) break;;
                 * ) echo "Please answer y (yes) or n (no).";;
             esac
@@ -110,6 +118,8 @@ if [ -d "$devops_dir" ]; then
 else
     git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"
 fi
+
+printf "%s\n" "Done."
 
 cd "$current"
 
