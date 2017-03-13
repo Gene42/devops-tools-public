@@ -1,0 +1,49 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+nodes = {
+  'test' => { 'ip' => '192.168.60.7', 'mem' => 512 }
+}
+
+$init_script = <<SCRIPT
+         
+     sudo yum install -y vim git
+     
+     init_folder=.devops-tools-public
+
+     if [ -d "$init_folder" ]; then
+        rm -rf "$init_folder"
+     fi
+
+     git clone https://github.com/Gene42/devops-tools-public.git "$init_folder"
+     cd "$init_folder"
+     chmod +x ./*.sh        
+SCRIPT
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(2) do |config|
+
+  nodes.keys.sort.each do |nodename|    
+      config.vm.define nodename do |box|
+          # Configure VM stuff
+          box.vm.box = "centos/7"
+          box.vm.provider "virtualbox" do |v|
+              v.memory = nodes[nodename]['mem'] 
+              v.cpus = 1
+          end
+
+          # Disable this (will fail on windows due to lack of rsync)
+          box.vm.synced_folder ".", "/vagrant", disabled: true
+
+          box.vm.network "private_network", ip: nodes[nodename]['ip']
+
+          box.vm.provision 'shell' do |s|
+            s.inline = $init_script           
+            s.privileged = false
+          end                                                        
+      end
+  end      
+end
