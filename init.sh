@@ -54,7 +54,7 @@ if [ ! -f "$key_file" ]; then
 fi
 
 if [ -z "$(cat $key_file)" ]; then
-    printf "%s\n" "SSH key [${key_file}] was not found, please make sure it exists and run this again!"    
+    printf "%s\n" "SSH key [${key_file}] is empty; make sure it contains a proper key and run this again!"    
     exit 1
 fi
 
@@ -119,7 +119,8 @@ else
     git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"
 fi
 
-printf "%s\n" "Done."
+printf "%s\n%s\n" "The devops scripts can be found in [${gene42_dir}/${devops_dir}]" "Done."
+
 
 cd "$current"
 
