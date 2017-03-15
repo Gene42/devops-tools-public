@@ -6,6 +6,9 @@ case $i in
     -d | --default)   
       default=yes
     ;;
+    -f | --force)   
+      force=yes
+    ;;
     *)
        echo "Unknown option: $i"; exit 1           
     ;;
@@ -99,21 +102,31 @@ mkdir -p "$gene42_dir"
 cd "$gene42_dir"
 
 devops_dir=scripts
+
+remove_repo()
+{
+    printf "%s\n" "Removing local scripts.."
+    rm -rf "$devops_dir"
+    git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"
+}
+
 if [ -d "$devops_dir" ]; then
     ####### Reset devops-tools (private) code - remove repo and pull
-    if [ "$default" = "yes" ]; then        
-        while true; do
-            read -r -p "Pull newest DevOps scripts (Current system.configs will not be deleted)? [y/n]:" yn
-            case $yn in
-                [Yy]* ) 
-                    printf "%s\n" "Removing local scripts.."
-                    rm -rf "$devops_dir"
-                    git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"
-                    break;;
-                [Nn]* ) break;;
-                * ) echo "Please answer y (yes) or n (no).";;
-            esac
-        done
+    if [ "$default" = "yes" ]; then
+        if [ "$force" = "yes" ]; then
+            remove_repo
+        else
+            while true; do
+                read -r -p "Pull newest DevOps scripts (Current system.configs will not be deleted)? [y/n]:" yn
+                case $yn in
+                    [Yy]* ) 
+                        remove_repo
+                        break;;
+                    [Nn]* ) break;;
+                    * ) echo "Please answer y (yes) or n (no).";;
+                esac
+            done
+        fi       
     fi
 else
     git clone "git@${ssh_config_alias}:Gene42/devops-tools.git" "$devops_dir"
