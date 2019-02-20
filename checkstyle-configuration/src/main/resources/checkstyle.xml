@@ -373,7 +373,11 @@
 
     <module name="ParameterName"/>
 
-    <module name="ParameterNumber"/>
+    <!-- Only for methods, due to spring constructor injection model. -->
+    <module name="ParameterNumber">
+        <property name="max" value="7"/>
+        <property name="tokens" value="METHOD_DEF"/>
+    </module>
 
     <module name="ParenPad"/>
 
