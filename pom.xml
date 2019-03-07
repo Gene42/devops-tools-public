@@ -46,9 +46,9 @@
   </repositories>
 
   <scm>
-    <connection>scm:git:git://github.com/Gene42/phenotips-customers.git</connection>
-    <developerConnection>scm:git:git@github.com:Gene42/phenotips-customers.git</developerConnection>
-    <url>https://github.com/Gene42/phenotips-customers</url>
+    <connection>scm:git:git://github.com/Gene42/devops-tools-public.git</connection>
+    <developerConnection>scm:git:git@github.com:Gene42/devops-tools-public.git</developerConnection>
+    <url>https://github.com/Gene42/devops-tools-public</url>
     <tag>HEAD</tag>
   </scm>
 
