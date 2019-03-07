@@ -45,6 +45,13 @@
     </repository>
   </repositories>
 
+  <scm>
+    <connection>scm:git:git://github.com/Gene42/phenotips-customers.git</connection>
+    <developerConnection>scm:git:git@github.com:Gene42/phenotips-customers.git</developerConnection>
+    <url>https://github.com/Gene42/phenotips-customers</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <modules>
     <module>checkstyle-configuration</module>
   </modules>
