@@ -10,6 +10,41 @@
   <packaging>pom</packaging>
   <name>Gene42 - DevOps - Public</name>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <distributionManagement>
+    <repository>
+      <id>gene42-nexus</id>
+      <name>Maven2 Repository for Public Releases</name>
+      <url>https://nexus.gene42.com/repository/gene42-public-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>gene42-nexus</id>
+      <name>Maven2 Repository for Public Snapshots</name>
+      <url>https://nexus.gene42.com/repository/gene42-public-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>gene42-nexus-public</id>
+      <name>Gene42 PhenoTips Public repository</name>
+      <url>https://nexus.gene42.com/repository/gene42-public-group/</url>
+      <releases>
+        <enabled>true</enabled>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
   <modules>
     <module>checkstyle-configuration</module>
   </modules>
