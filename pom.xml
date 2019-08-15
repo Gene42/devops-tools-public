@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gene42.devops</groupId>
-  <artifactId>gene42-build-tools-public</artifactId>
+  <artifactId>gene42-devops-tools-public</artifactId>
   <version>1.0.1-SNAPSHOT</version>
 
   <packaging>pom</packaging>
@@ -54,6 +54,8 @@
 
   <modules>
     <module>checkstyle-configuration</module>
+    <module>license-resources</module>
+    <module>license-verification-resources</module>
   </modules>
 </project>
 

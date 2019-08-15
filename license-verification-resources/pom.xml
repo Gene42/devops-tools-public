@@ -11,9 +11,8 @@
 
   <packaging>jar</packaging>
 
-  <artifactId>gene42-checkstyle-configuration</artifactId>
-
-  <name>Gene42 - DevOps - Public - Checkstyle Configuration</name>
+  <artifactId>gene42-license-verification-resources</artifactId>
+  <name>Gene42 - DevOps - Public - License Verification Resources</name>
 
 </project>
 

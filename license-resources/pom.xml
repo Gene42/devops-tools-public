@@ -11,9 +11,24 @@
 
   <packaging>jar</packaging>
 
-  <artifactId>gene42-checkstyle-configuration</artifactId>
+  <artifactId>gene42-license-resources</artifactId>
+  <name>Gene42 - DevOps - Public - License Resources</name>
 
-  <name>Gene42 - DevOps - Public - Checkstyle Configuration</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-remote-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>bundle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
 
