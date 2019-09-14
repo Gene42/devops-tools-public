@@ -270,11 +270,6 @@
       <property name="tokens" value="CLASS_DEF,INTERFACE_DEF,ANNOTATION_DEF,ENUM_DEF,CTOR_DEF,METHOD_DEF,OBJBLOCK"/>
     </module>
     -->
-    <module name="LineLength">
-      <!-- @(\w+\.)+\w+::\w+\( stands for JSNI method calls: @my.package.MyClass::myMethod() -->
-      <property name="ignorePattern" value="(@version|@see|@link|^import|@(\w+\.)+\w+::\w+\()"/>
-      <property name="max" value="120"/>
-    </module>
 
     <module name="LocalFinalVariableName"/>
 
@@ -478,5 +473,12 @@
 
     <module name="WhitespaceAround"/>
 
+  </module>
+
+  <module name="LineLength">
+    <!-- @(\w+\.)+\w+::\w+\( stands for JSNI method calls: @my.package.MyClass::myMethod() -->
+    <property name="ignorePattern" value="(@version|@see|@link|^import|@(\w+\.)+\w+::\w+\()"/>
+    <property name="fileExtensions" value="java"/>
+    <property name="max" value="120"/>
   </module>
 </module>
