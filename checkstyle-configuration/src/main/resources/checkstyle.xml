@@ -218,7 +218,7 @@
     <!--module name="ImportControl"/-->
 
     <module name="ImportOrder">
-      <property name="groups" value="com.gene42,org.phenotips,org.xwiki,java,javax,org"/>
+      <property name="groups" value="org.phenotips,org.xwiki,java,javax,org"/>
       <property name="ordered" value="true"/>
       <property name="separated" value="true"/>
       <!-- Static imports -->
