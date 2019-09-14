@@ -138,6 +138,7 @@
         Optional, Collector, Collectors, Spliterator, StreamSupport, Streams, Stream, IntStream, LongStream, Consumer, Supplier, Function, Predicate,
         Logger, LoggerFactory, StringUtils, Inject, Named, Component, Role, Singleton"/>
       <property name="excludedPackages" value="java.util, java.io, org.apache.commons"/>
+      <property name="max" value="25"/>
     </module>
 
     <module name="ClassTypeParameterName"/>
