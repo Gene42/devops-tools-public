@@ -5,7 +5,7 @@
 
   <groupId>com.gene42.devops</groupId>
   <artifactId>gene42-devops-tools-public</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.0</version>
 
   <packaging>pom</packaging>
   <name>Gene42 - DevOps - Public</name>
@@ -70,7 +70,7 @@
     <connection>scm:git:git://github.com/Gene42/devops-tools-public.git</connection>
     <developerConnection>scm:git:git@github.com:Gene42/devops-tools-public.git</developerConnection>
     <url>https://github.com/Gene42/devops-tools-public</url>
-    <tag>HEAD</tag>
+    <tag>gene42-devops-public-1.2.0</tag>
   </scm>
 
   <modules>
