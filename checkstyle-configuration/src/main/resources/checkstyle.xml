@@ -217,14 +217,14 @@
     <module name="IllegalType"/>
 
     <!--module name="ImportControl"/-->
-
+    
+    <!--
     <module name="ImportOrder">
       <property name="groups" value="org.phenotips,org.xwiki,java,javax,org"/>
       <property name="ordered" value="true"/>
-      <property name="separated" value="true"/>
-      <!-- Static imports -->
+      <property name="separated" value="true"/>     
       <property name="option" value="bottom"/>
-    </module>
+    </module>-->
 
     <module name="Indentation"/>
 
